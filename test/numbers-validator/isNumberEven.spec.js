@@ -40,5 +40,11 @@ describe('isNumberEven', () => {
   // returns false or if passing a non-number throws an error.
   it('should return false if number is odd', () => {
     expect(validator.isNumberEven(5)).to.be.equal(false);
+  });
+
+  it('should throw an error if provided with a string', () => {
+    expect(() => {
+        validator.isNumberEven('4');
+    }).to.throw(`[4] is not of type "Number" it is of type "string"`);
   })
 });
