@@ -1,12 +1,12 @@
 // Importing the 'expect' function from the 'chai' library to perform assertions
-const { expect } = require('chai');
+import { expect } from 'chai';
 
 // Importing functions 'describe', 'beforeEach', 'afterEach' and 'it' from 'mocha' which is a test framework.
-const { describe, beforeEach, afterEach, it } = require('mocha');
+import { describe, beforeEach, afterEach, it } from 'mocha';
 
 // Importing the NumbersValidator class from the relative path '../app/numbers-validator'
 // so we can test its methods.
-const NumbersValidator = require('../app/numbers-validator');
+import NumbersValidator from '../../app/numbers-validator.js';
 
 // 'describe' is used to group related tests together into a test suite.
 // Here, it describes a suite of tests for the 'isNumberEven' method of NumbersValidator class.

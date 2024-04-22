@@ -56,4 +56,4 @@ class NumbersValidator {
   }
   
   // Export the NumbersValidator class to be used in other modules
-  module.exports = NumbersValidator;
+  export default NumbersValidator;
