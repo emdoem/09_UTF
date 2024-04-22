@@ -2,6 +2,7 @@
   "name": "unit-testing-frameworks",
   "version": "1.0.0",
   "description": "Automated Testing in JS - module 09 - Unit Testing Frameworks",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "test"
