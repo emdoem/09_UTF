@@ -11,6 +11,13 @@ const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({baseDirectory: __dirname, recommendedConfig: pluginJs.configs.recommended});
 
 export default [
-	{languageOptions: {globals: globals.node}},
+	{
+		languageOptions: {globals: globals.node},
+		ignores: [
+			'node_modules/',
+			'coverage/',
+			'mochawesome-report/',
+		],
+	},
 	...compat.extends('xo'),
 ];
