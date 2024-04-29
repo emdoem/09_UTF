@@ -1,5 +1,5 @@
 // Importing the 'expect' function from the 'chai' library to perform assertions
-import { expect } from 'chai';
+import {expect} from 'chai';
 
 // Importing functions 'describe', 'beforeEach', 'afterEach' and 'it' from 'mocha' which is a test framework.
 import {
@@ -27,13 +27,13 @@ const setupAndCleanup = () => {
 		// Sets the validator variable to null to clean up memory after each test
 		validator = null;
 	});
-}
+};
 
 // 'describe' is used to group related tests together into a test suite.
 // Here, it describes a suite of tests for the 'isNumberEven' method of NumbersValidator class.
 describe('isNumberEven', () => {
 	setupAndCleanup();
-	
+
 	// 'it' is used for individual test cases - it includes the actual test.
 	// The string argument describes what the test should do.
 	it('should return true if number is even', () => {
@@ -59,18 +59,18 @@ describe('getEvenNumbersFromArray', () => {
 	setupAndCleanup();
 
 	it('should throw an error if provided not an array', () => {
-		const input = { a: 1, b: 2, c: 3 };
+		const input = {a: 1, b: 2, c: 3};
 
 		expect(() => {
-			validator.getEvenNumbersFromArray(input)
+			validator.getEvenNumbersFromArray(input);
 		}).to.throw(`[${input}] is not an array of "Numbers"`);
-	})
+	});
 
 	it('should throw an error if provided an array consisting not only of numbers', () => {
 		const input = [1, 2, '3', 4];
 
 		expect(() => {
-			validator.getEvenNumbersFromArray(input)
+			validator.getEvenNumbersFromArray(input);
 		}).to.throw(`[${input}] is not an array of "Numbers"`);
 	});
 
@@ -100,10 +100,10 @@ describe('isAllNumbers', () => {
 	});
 
 	it('should throw an error if not provided with an array', () => {
-		const input = { a: 1, b: 2, c: 3 };
+		const input = {a: 1, b: 2, c: 3};
 
 		expect(() => {
-			validator.isAllNumbers(input)
+			validator.isAllNumbers(input);
 		}).to.throw(`[${input}] is not an array`);
 	});
 });
@@ -115,7 +115,7 @@ describe('isInteger', () => {
 		const input = 'two';
 
 		expect(() => {
-			validator.isInteger(input)
+			validator.isInteger(input);
 		}).to.throw(`[${input}] is not a number`);
 	});
 
