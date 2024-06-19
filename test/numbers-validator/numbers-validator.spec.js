@@ -34,20 +34,24 @@ const setupAndCleanup = () => {
 describe('isNumberEven', () => {
 	setupAndCleanup();
 
-	// 'it' is used for individual test cases - it includes the actual test.
-	// The string argument describes what the test should do.
-	it('should return true if number is even', () => {
-		// Using 'expect' to assert that the 'isNumberEven' method returns true when
-		// passed the even number 4. The '.to.be.equal(true)' is the actual assertion check.
-		expect(validator.isNumberEven(4)).to.be.equal(true);
+	// positive test cases here
+	[
+		{
+			title: 'should return true if number is even',
+			input: 4,
+			expectedOutput: true
+		},
+		{
+			title: 'should return false if number is odd',
+			input: 5,
+			expectedOutput: false
+		}
+	].forEach(test => {
+		it(test.title, ()=> {
+			expect(validator.isNumberEven(test.input)).to.be.equal(test.expectedOutput);
+		})
 	});
-
-	// Additional tests would follow for different test cases, such as testing if an odd number
-	// returns false or if passing a non-number throws an error.
-	it('should return false if number is odd', () => {
-		expect(validator.isNumberEven(5)).to.be.equal(false);
-	});
-
+	
 	it('should throw an error if provided with a string', () => {
 		expect(() => {
 			validator.isNumberEven('4');
