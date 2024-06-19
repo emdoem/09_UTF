@@ -99,19 +99,25 @@ describe('getEvenNumbersFromArray', () => {
 describe('isAllNumbers', () => {
 	setupAndCleanup();
 
-	it('should return true if every element in the array is of type number', () => {
-		const input = [1, 2, 3];
-		const output = validator.isAllNumbers(input);
+	// positive test cases
+	[
+		{
+			title: 'should return true if every element in the array is of type number',
+			input: [1, 2, 3],
+			expectedOutput: true
+		},
+		{
+			title: 'should return false if not every element in the array is of type number',
+			input: [1, '2', 3],
+			expectedOutput: false
+		}
+	].forEach(test => {
+		it(test.title, () => {
+			const output = validator.isAllNumbers(test.input);
 
-		expect(output).to.be.equal(true);
-	});
-
-	it('should return false if not every element in the array is of type number', () => {
-		const input = [1, '2', 3];
-		const output = validator.isAllNumbers(input);
-
-		expect(output).to.be.equal(false);
-	});
+			expect(output).to.be.equal(test.expectedOutput);
+		})
+	})
 
 	it('should throw an error if not provided with an array', () => {
 		const input = { a: 1, b: 2, c: 3 };
@@ -133,17 +139,23 @@ describe('isInteger', () => {
 		}).to.throw(`[${input}] is not a number`);
 	});
 
-	it('should return true if provided with an integer', () => {
-		const input = 2;
-		const output = validator.isInteger(input);
+	// positive test cases
+	[
+		{
+			title: 'should return true if provided with an integer',
+			input: 2,
+			expectedOutput: true
+		},
+		{
+			title: 'should return false if provided with a number that is not integer',
+			input: 2.5,
+			expectedOutput: false
+		}
+	].forEach(test => {
+		it(test.title, () => {
+			const output = validator.isInteger(test.input);
 
-		expect(output).to.be.equal(true);
-	});
-
-	it('should return false if provided with a number that is not integer', () => {
-		const input = 2.5;
-		const output = validator.isInteger(input);
-
-		expect(output).to.be.equal(false);
+			expect(output).to.be.equal(test.expectedOutput);
+		})
 	});
 });
